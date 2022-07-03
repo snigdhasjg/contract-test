@@ -1,0 +1,11 @@
+server:
+  port: 8082
+  servlet:
+    application-display-name: bff-service-api
+    context-path: "/bff"
+
+feign:
+  client:
+    config:
+      product-api:
+        url: ${PRODUCT_API_URL:http://localhost:8081}

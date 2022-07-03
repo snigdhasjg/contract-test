@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    id "io.freefair.lombok" version "${lombokPluginVersion}"
+    id "au.com.dius.pact" version "${pactVersion}"
+}
+
+group 'org.joe.bff'
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudfeignVersion}"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    enabled = false
+}

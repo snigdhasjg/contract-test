@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
+    id "io.freefair.lombok" version "${lombokPluginVersion}"
+    id "au.com.dius.pact" version "${pactVersion}"
+}
+
+group 'org.joe.producer'
+
+dependencies {
+    implementation "org.springframework.boot:spring-boot-starter-web"
+
+    testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "au.com.dius.pact.provider:junit5spring:${pactVersion}"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    enabled = false
+}

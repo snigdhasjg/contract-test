@@ -13,6 +13,7 @@ dependencies {
     implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudfeignVersion}"
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "au.com.dius.pact.consumer:junit5:${pactVersion}"
 }
 
 test {
@@ -21,4 +22,10 @@ test {
 
 jar {
     enabled = false
+}
+
+pact {
+    publish {
+        pactBrokerUrl = 'http://localhost:9292'
+    }
 }

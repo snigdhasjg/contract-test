@@ -6,7 +6,7 @@ plugins {
     id "au.com.dius.pact" version "${pactVersion}"
 }
 
-group 'org.joe.bff'
+group 'com.joe.bff'
 
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web"

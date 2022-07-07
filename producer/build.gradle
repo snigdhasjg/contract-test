@@ -19,6 +19,13 @@ test {
     useJUnitPlatform()
 }
 
+pact {
+    //noinspection GroovyAssignabilityCheck
+    broker {
+        pactBrokerUrl = 'http://localhost:9292'
+    }
+}
+
 jar {
     enabled = false
 }

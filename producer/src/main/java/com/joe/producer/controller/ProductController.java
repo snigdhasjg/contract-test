@@ -1,6 +1,8 @@
 package com.joe.producer.controller;
 
 import com.joe.producer.domain.Product;
+import com.joe.producer.error.ClientException;
+import com.joe.producer.error.ErrorCode;
 import com.joe.producer.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,8 @@ public class ProductController {
     public ResponseEntity<Product> getProduct(@PathVariable Integer id) {
         return productRepository.fetchProduct(id)
                 .map(ResponseEntity::ok)
-                .orElse(ResponseEntity.notFound().build());
+                .orElseThrow(() ->
+                        new ClientException(ErrorCode.NOT_FOUND, String.format("Product with id %d not found.", id))
+                );
     }
 }

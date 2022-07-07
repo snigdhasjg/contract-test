@@ -14,16 +14,16 @@ public class ProductRepository {
 
     public ProductRepository() {
         this.products = Map.of(
-                1, Product
+                6, Product
                         .builder()
-                        .id(1)
+                        .id(6)
                         .name("Soap")
                         .description("Germ Protection Bathing Soap Bar")
                         .tags(List.of("Hand", "Body", "Clean", "Refreshing"))
                         .build(),
-                2, Product
+                7, Product
                         .builder()
-                        .id(2)
+                        .id(7)
                         .name("T-Shirt")
                         .description("Regular unisex T-Shirt")
                         .build()

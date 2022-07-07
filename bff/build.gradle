@@ -25,6 +25,7 @@ jar {
 }
 
 pact {
+    //noinspection GroovyAssignabilityCheck
     publish {
         pactBrokerUrl = 'http://localhost:9292'
     }

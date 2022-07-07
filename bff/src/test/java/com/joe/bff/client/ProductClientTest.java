@@ -32,9 +32,9 @@ class ProductClientTest {
     public V4Pact productByIdPact(PactBuilder builder) {
         return builder
                 .usingLegacyDsl()
-                .given("Gives a product with requested id: 7")
-                .uponReceiving("A request to GET a product")
-                .path("/products/7")
+                .given("Gives a product for requested id")
+                .uponReceiving("A valid request to GET a product")
+                .matchPath("/products/\\d+", "/products/7")
                 .method("GET")
                 .willRespondWith()
                 .status(200)
@@ -51,16 +51,16 @@ class ProductClientTest {
     public V4Pact productNotFoundPact(PactBuilder builder) {
         return builder
                 .usingLegacyDsl()
-                .given("Throws error with invalid id: 8")
-                .uponReceiving("A request to GET a product")
-                .path("/products/8")
+                .given("Throws error for invalid id")
+                .uponReceiving("An invalid request to GET a product")
+                .matchPath("/products/\\d+", "/products/7")
                 .method("GET")
                 .willRespondWith()
                 .status(404)
                 .matchHeader("Content-Type", "application/json")
                 .body(new PactDslJsonBody()
-                        .stringType("code", "JOE-404")
-                        .stringType("message", "Product with id 8 not found")
+                        .stringType("code", "API-404")
+                        .stringType("message", "Product with id 7 not found")
                 )
                 .toPact(V4Pact.class);
     }

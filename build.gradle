@@ -1,7 +1,14 @@
+ext.getHash = {
+    def p1 = "git -C ${rootDir} rev-parse --short HEAD".execute()
+    p1.waitFor()
+    return p1.text.trim()
+}
+
 allprojects {
     group 'com.joe'
-    version '1.0-SNAPSHOT'
+    version getHash()
 
+    //noinspection GroovyAssignabilityCheck
     repositories {
         mavenCentral()
     }

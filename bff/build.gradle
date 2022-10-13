@@ -26,11 +26,18 @@ jar {
 }
 
 pact {
+    /**
+     * Documentation for the properties can be found here
+     *
+     * https://github.com/pact-foundation/pact-jvm/tree/4_3_15/provider/gradle
+     * https://github.com/pact-foundation/pact-jvm/tree/4_3_15/provider/gradle/src/main/kotlin/au/com/dius/pact/provider/gradle
+     */
+
     publish {
         pactBrokerUrl = 'http://localhost:9292'
+        consumerVersion = project.version
+        consumerBranch = getGitBranch()
+        tags = ['production']
+        consumerBuildUrl = 'https://jenkins.com/build/bff'
     }
-}
-
-pactPublish {
-    dependsOn test
 }

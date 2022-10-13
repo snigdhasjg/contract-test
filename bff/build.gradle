@@ -17,6 +17,11 @@ dependencies {
 }
 
 test {
+    doFirst {
+        systemProperty 'pact.verifier.publishResults', true
+        systemProperty 'pact.provider.version', project.version
+        systemProperty 'pact.provider.branch', getBranch()
+    }
     useJUnitPlatform()
 }
 

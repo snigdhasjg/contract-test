@@ -4,6 +4,12 @@ ext.getHash = {
     return p1.text.trim()
 }
 
+ext.getBranch = {
+    def p1 = "git -C ${rootDir} name-rev HEAD".execute()
+    p1.waitFor()
+    return p1.text.trim().replaceFirst("HEAD ", "").replaceFirst("remotes/origin", "")
+}
+
 allprojects {
     group 'com.joe'
     version getHash()

@@ -42,8 +42,6 @@ class ProductControllerContractTest {
     @BeforeEach
     void before(PactVerificationContext context) {
         context.setTarget(new MockMvcTestTarget(mockMvc));
-        System.setProperty("pact.verifier.publishResults", "true");
-        System.setProperty("pact.provider.version", "v1.0.1-FINAL");
     }
 
     @State(value = "Gives a product for requested id")

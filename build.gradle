@@ -1,10 +1,10 @@
-ext.getHash = {
-    def p1 = "git -C ${rootDir} rev-parse --short HEAD".execute()
+ext.describeGitTag = {
+    def p1 = "git -C ${rootDir} describe --tags".execute()
     p1.waitFor()
     return p1.text.trim()
 }
 
-ext.getBranch = {
+ext.getGitBranch = {
     def p1 = "git -C ${rootDir} name-rev HEAD".execute()
     p1.waitFor()
     return p1.text.trim().replaceFirst("HEAD ", "").replaceFirst("remotes/origin", "")
@@ -12,7 +12,7 @@ ext.getBranch = {
 
 allprojects {
     group 'com.joe'
-    version getHash()
+    version describeGitTag()
 
     //noinspection GroovyAssignabilityCheck
     repositories {

@@ -3,7 +3,6 @@ plugins {
     id 'org.springframework.boot' version "${springBootVersion}"
     id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"
     id "io.freefair.lombok" version "${lombokPluginVersion}"
-    id "au.com.dius.pact" version "${pactVersion}"
 }
 
 group 'com.joe.producer'
@@ -20,16 +19,9 @@ test {
         systemProperty 'pact.verifier.publishResults', true
         systemProperty 'pact.verifier.ignoreNoConsumerss', true
         systemProperty 'pact.provider.version', project.version
-        systemProperty 'pact.provider.branch', getBranch()
+        systemProperty 'pact.provider.branch', getGitBranch()
     }
     useJUnitPlatform()
-}
-
-pact {
-    //noinspection GroovyAssignabilityCheck
-    broker {
-        pactBrokerUrl = 'http://localhost:9292'
-    }
 }
 
 jar {

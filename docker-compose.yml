@@ -1,5 +1,10 @@
 version: '3.3'
 services:
+  # Documentation of properties & policies
+  # https://docs.pact.io/pact_broker/docker_images/pactfoundation
+
+  # To deploy on kubernetes
+  # https://github.com/ChrisJBurns/pact-broker-chart
   pact-broker:
     image: pactfoundation/pact-broker:2
     container_name: pact-broker

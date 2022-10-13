@@ -18,6 +18,7 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    finalizedBy pactPublish
 }
 
 jar {
@@ -28,4 +29,8 @@ pact {
     publish {
         pactBrokerUrl = 'http://localhost:9292'
     }
+}
+
+pactPublish {
+    dependsOn test
 }

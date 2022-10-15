@@ -16,7 +16,7 @@ services:
       PACT_BROKER_DATABASE_HOST: pact-db
       PACT_BROKER_DATABASE_NAME: postgres
       PACT_BROKER_DATABASE_CLEAN_ENABLED: true
-      PACT_BROKER_DATABASE_CLEAN_CRON_SCHEDULE: '55 20 * * *'
+      PACT_BROKER_DATABASE_CLEAN_CRON_SCHEDULE: '5 21 * * *'
       PACT_BROKER_DATABASE_CLEAN_KEEP_VERSION_SELECTORS: '[{"latest": true, "max_age": 1}]'
     depends_on:
       - pact-db

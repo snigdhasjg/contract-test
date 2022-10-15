@@ -32,7 +32,7 @@ class ProductClientTest {
     public V4Pact productByIdPact(PactBuilder builder) {
         return builder
                 .usingLegacyDsl()
-                .given("shouldGiveProductForProductId")
+                .given("validRequest")
                 .uponReceiving("A valid request to GET a product")
                 .matchPath("/products/\\d+", "/products/7")
                 .method("GET")
@@ -51,7 +51,7 @@ class ProductClientTest {
     public V4Pact productNotFoundPact(PactBuilder builder) {
         return builder
                 .usingLegacyDsl()
-                .given("shouldThrow404ErrorIfRequestedProductNotFound")
+                .given("invalidRequest")
                 .uponReceiving("An invalid request of a product that doesn't exists")
                 .matchPath("/products/\\d+", "/products/7")
                 .method("GET")

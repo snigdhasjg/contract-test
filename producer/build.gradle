@@ -22,7 +22,7 @@ test {
          * https://docs.pact.io/implementation_guides/jvm/provider/gradle
          */
         systemProperty 'pact.verifier.publishResults', true
-        systemProperty 'pact.verifier.ignoreNoConsumerss', true
+        systemProperty 'pact.verifier.ignoreNoConsumers', true
         systemProperty 'pact.verifier.buildUrl', 'https://jenkins.com/build/provider'
         systemProperty 'pact.provider.version', project.version
         systemProperty 'pact.provider.branch', getGitBranch()

@@ -44,7 +44,7 @@ class ProductControllerContractTest {
         context.setTarget(new MockMvcTestTarget(mockMvc));
     }
 
-    @State(value = "shouldGiveProductForProductId")
+    @State(value = "validRequest")
     void shouldGiveProductForProductId() {
         Product soap = Product
                 .builder()
@@ -58,7 +58,7 @@ class ProductControllerContractTest {
                 .thenReturn(Optional.of(soap));
     }
 
-    @State(value = "shouldThrow404ErrorIfRequestedProductNotFound")
+    @State(value = "invalidRequest")
     void shouldThrow404ErrorIfRequestedProductNotFound() {
         when(productRepository.fetchProduct(anyInt()))
                 .thenReturn(Optional.empty());

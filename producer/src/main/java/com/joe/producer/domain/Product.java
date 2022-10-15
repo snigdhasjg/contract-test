@@ -12,4 +12,5 @@ public class Product {
     String name;
     String description;
     List<String> tags;
+    String imageUrl;
 }

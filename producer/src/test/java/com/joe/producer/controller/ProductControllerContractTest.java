@@ -44,21 +44,22 @@ class ProductControllerContractTest {
         context.setTarget(new MockMvcTestTarget(mockMvc));
     }
 
-    @State(value = "Gives a product for requested id")
-    void shouldReturnEverything() {
+    @State(value = "shouldGiveProductForProductId")
+    void shouldGiveProductForProductId() {
+        Product soap = Product
+                .builder()
+                .id(7)
+                .name("Soap")
+                .description("Germ Protection Bathing Soap Bar")
+                .tags(List.of("bath", "bubble"))
+                .build();
+
         when(productRepository.fetchProduct(anyInt()))
-                .thenReturn(Optional.of(
-                        Product.builder()
-                                .id(7)
-                                .name("Soap")
-                                .description("Germ Protection Bathing Soap Bar")
-                                .tags(List.of("bath", "bubble"))
-                                .build()
-                ));
+                .thenReturn(Optional.of(soap));
     }
 
-    @State(value = "Throws error for invalid id")
-    void shouldReturnError() {
+    @State(value = "shouldThrow404ErrorIfRequestedProductNotFound")
+    void shouldThrow404ErrorIfRequestedProductNotFound() {
         when(productRepository.fetchProduct(anyInt()))
                 .thenReturn(Optional.empty());
     }

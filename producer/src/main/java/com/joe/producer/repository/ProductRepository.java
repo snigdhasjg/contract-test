@@ -20,6 +20,7 @@ public class ProductRepository {
                         .name("Soap")
                         .description("Germ Protection Bathing Soap Bar")
                         .tags(List.of("Hand", "Body", "Clean", "Refreshing"))
+                        .imageUrl("www.dirty-soap.com")
                         .build(),
                 7, Product
                         .builder()

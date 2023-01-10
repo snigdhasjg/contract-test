@@ -22,7 +22,7 @@ services:
       - pact-db
 
   pact-db:
-    image: postgres:13.4
+    image: postgres:14.5
     container_name: pact-db
     ports:
       - "54321:5432"

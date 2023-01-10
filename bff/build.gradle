@@ -8,9 +8,21 @@ plugins {
 
 group 'com.joe.bff'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(jdkVersion)
+    }
+}
+
+dependencyManagement {
+    imports {
+        mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudBomVersion}"
+    }
+}
+
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web"
-    implementation "org.springframework.cloud:spring-cloud-starter-openfeign:${springCloudfeignVersion}"
+    implementation "org.springframework.cloud:spring-cloud-starter-openfeign"
 
     testImplementation "org.springframework.boot:spring-boot-starter-test"
     testImplementation "au.com.dius.pact.consumer:junit5:${pactVersion}"

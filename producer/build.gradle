@@ -7,6 +7,12 @@ plugins {
 
 group 'com.joe.producer'
 
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(jdkVersion)
+    }
+}
+
 dependencies {
     implementation "org.springframework.boot:spring-boot-starter-web"
 

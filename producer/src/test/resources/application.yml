@@ -1,2 +1,6 @@
 pactbroker:
-  url: "http://localhost:9292"
+  host: "test.pactflow.io"
+  scheme: "https"
+  auth:
+    username: "dXfltyFMgNOFZAxr8io9wJ37iUpY42M"
+    password: "O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1"

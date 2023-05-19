@@ -51,7 +51,7 @@ pact {
         pactBrokerPassword = 'O5AIZWxelWbLvqMd8PkAVycBJh2Psyg1'
         consumerVersion = project.version
         consumerBranch = getGitBranch()
-        tags = ['production']
+        tags = ['feature-1']
         consumerBuildUrl = 'https://jenkins.com/build/bff'
     }
 }

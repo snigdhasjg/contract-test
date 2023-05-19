@@ -42,6 +42,7 @@ class ProductClientTest {
                 .body(new PactDslJsonBody()
                         .integerType("id", 7)
                         .stringType("name", "Soap")
+                        .stringType("rating", "4*")
                         .stringType("description", "Germ Protection Bathing Soap Bar")
                 )
                 .toPact(V4Pact.class);
